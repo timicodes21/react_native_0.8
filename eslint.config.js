@@ -45,6 +45,11 @@ module.exports = [
       '@tanstack/query': tanstackQuery,
       'react-native': reactNative,
     },
+    settings: {
+      react: {
+        version: 'detect', // 👈 lets eslint-plugin-react auto-detect React version
+      },
+    },
     rules: {
       ...ts.configs.recommended.rules,
       ...sonarJsPlugin.configs.recommended.rules,
