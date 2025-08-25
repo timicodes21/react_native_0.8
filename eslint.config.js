@@ -34,6 +34,7 @@ module.exports = [
         console: 'readonly',
         process: 'readonly',
         setTimeout: 'readonly',
+        clearTimeout: 'readonly',
       },
     },
     plugins: {

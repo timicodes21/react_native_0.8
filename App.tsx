@@ -6,15 +6,18 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/app/constants/queryClient';
+import { ToastProvider } from '@/app/providers/toast';
 
 const App = () => {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <QueryClientProvider client={queryClient}>
-            <AppNavigationContainer />
-          </QueryClientProvider>
+          <ToastProvider>
+            <QueryClientProvider client={queryClient}>
+              <AppNavigationContainer />
+            </QueryClientProvider>
+          </ToastProvider>
         </GestureHandlerRootView>
       </SafeAreaProvider>
     </ThemeProvider>
