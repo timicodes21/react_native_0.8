@@ -1,153 +1,88 @@
-import React, { useEffect, useMemo } from 'react';
+// ThemeProvider.tsx
+import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import {
-  ActivityIndicator,
   StatusBar,
+  View,
+  ActivityIndicator,
   StyleSheet,
   useColorScheme,
-  View,
 } from 'react-native';
-import { asyncGet, asyncStore } from '../../../shared/utils/storage.util';
-import {
-  IThemeName,
-  IThemeProviderProps,
-  IThemeSwitchWaitProps,
-} from './interfaces';
-import { DarkThemeColors, IThemeColor, LightThemeColors } from './theme';
-import { ThemeContext } from './themeContext';
+import { asyncGet, asyncStore } from '@/shared/utils/storage.util';
 import { StoreKeys } from '@/app/constants/store';
-
-const sleep = async (duration: number): Promise<number> => {
-  return new Promise(res => {
-    setTimeout(() => {
-      res(duration);
-    }, duration);
-  });
-};
+import { IThemeName } from './interfaces';
+import { LightTheme, DarkTheme } from './theme';
+import { ThemeContext } from './themeContext';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  switchWaitText: {
-    marginVertical: 20,
-    fontSize: 20,
-    lineHeight: 22,
-    textAlign: 'center',
-  },
+  container: { flex: 1 },
   switchWaitContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignContent: 'center',
+    alignItems: 'center',
   },
 });
 
-/**
- * This component replaces the app and is show to the user while the
- * application theme is being selected.
- * @param {IThemeSwitchWaitProps} props
- * @returns React.ReactElement
- */
-const ThemeSwitchWait: React.FC<IThemeSwitchWaitProps> = ({
-  backgroundColor,
-  textColor,
-}) => {
-  return (
-    <View style={[styles.switchWaitContainer, { backgroundColor }]}>
-      <ActivityIndicator color={textColor} />
-    </View>
-  );
-};
+export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const systemScheme = useColorScheme();
+  const [theme, setTheme] = useState<IThemeName>('light');
+  const [loading, setLoading] = useState(true);
 
-/**
- * This component serves as the theme provider and sets the interface for
- * switching and getting the selected theme.
- * @returns React.ReactElement
- */
-export const ThemeProvider: IThemeProviderProps = ({ children }) => {
-  const systemColorScheme = useColorScheme();
-  const [theme, setTheme] = React.useState<IThemeName>(
-    systemColorScheme === 'dark' ? 'dark' : 'light',
-  );
-  const [isPending, setIsPending] = React.useState<boolean>(true);
-  const [colors, setColors] =
-    React.useState<Record<IThemeColor, string>>(DarkThemeColors);
-
+  // Load persisted theme or fallback to system
   useEffect(() => {
-    setTheme(systemColorScheme === 'dark' ? 'dark' : 'light');
-  }, [systemColorScheme]);
+    const loadTheme = async () => {
+      const persisted = await asyncGet<IThemeName>(StoreKeys.THEME);
+      if (persisted) {
+        setTheme(persisted);
+      } else {
+        setTheme(systemScheme === 'dark' ? 'dark' : 'light');
+      }
+      setLoading(false);
+    };
+    loadTheme();
+  }, [systemScheme]);
 
-  const changeTheme = async (name: IThemeName) => {
-    // toggle pending mode on
-    setIsPending(true);
-    // persist new them
-    try {
-      await asyncStore(StoreKeys.THEME, name);
-    } catch (error) {
-      console.error('error saving theme', error);
-    }
-    // update theme in state
-    await sleep(1500);
-    // set theme colors
-    setColors(name === 'light' ? LightThemeColors : DarkThemeColors);
-    // set current theme
-    setTheme(name);
-    // toggle pending mode off
-    setIsPending(false);
+  const themeObject = useMemo(
+    () => (theme === 'light' ? LightTheme : DarkTheme),
+    [theme],
+  );
+
+  const changeTheme = (name: IThemeName) => {
+    setTheme(name); // optimistic UI
+    asyncStore(StoreKeys.THEME, name).catch(err =>
+      console.error('Failed to persist theme:', err),
+    );
   };
 
-  /**
-   * This method is used to set the initial theme, this will get the selected
-   * theme from the async store.
-   */
-  const setInitialTheme = React.useCallback(
-    async function setInitialTheme() {
-      const persistedTheme = await asyncGet<IThemeName>(StoreKeys.THEME);
-      // no need to select theme if alternate theme is not set
-      if (persistedTheme !== 'light') {
-        // change android navigation bar color
-        // toggle pending mode off and load application
-        return setIsPending(false);
-      }
-      // change android navigation bar color
+  if (loading) {
+    return (
+      <View
+        style={[
+          styles.switchWaitContainer,
+          { backgroundColor: themeObject.colors.background },
+        ]}>
+        <ActivityIndicator color={themeObject.colors.main} />
+      </View>
+    );
+  }
 
-      // change theme to the persisted theme
-      return changeTheme(persistedTheme);
-    },
-    [changeTheme],
-  );
-
-  // handle component did mount
-  useEffect(() => {
-    setInitialTheme();
-  }, []);
-
-  const value = useMemo(() => {
-    return {
-      currentTheme: theme,
-      changeTheme,
-      themeColors: colors,
-    };
-  }, [theme, changeTheme, colors]);
-
-  // render the app
   return (
-    <ThemeContext.Provider value={value}>
-      {!isPending ? (
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}>
-          <StatusBar
-            barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-            backgroundColor={colors.background}
-            hidden={false}
-          />
-          {children}
-        </View>
-      ) : (
-        <ThemeSwitchWait
-          backgroundColor={colors.background}
-          textColor={colors.main}
+    <ThemeContext.Provider
+      value={{
+        currentTheme: theme,
+        changeTheme,
+        themeColors: themeObject.colors,
+      }}>
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: themeObject.colors.background },
+        ]}>
+        <StatusBar
+          barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
+          backgroundColor={themeObject.colors.background}
         />
-      )}
+        {children}
+      </View>
     </ThemeContext.Provider>
   );
 };

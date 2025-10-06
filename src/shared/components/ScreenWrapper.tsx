@@ -9,8 +9,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { CustomTheme } from '../../app/providers/theme/interfaces';
-import { useTheme } from '../../app/providers/theme/themeContext';
+import { AppTheme } from '../../app/providers/theme/interfaces';
+import { useAppTheme } from '../../app/providers/theme/themeContext';
 
 type IScreenWrapperProps = React.FC<{
   style?: StyleProp<ViewStyle>;
@@ -31,7 +31,7 @@ const ScreenWrapper: IScreenWrapperProps = ({
   statusBarStyle,
   noKeyboardAvoidingView,
 }) => {
-  const { themeColors } = useTheme();
+  const { themeColors } = useAppTheme();
   const styles = stylesheet(themeColors);
 
   return noKeyboardAvoidingView ? (
@@ -55,7 +55,7 @@ const ScreenWrapper: IScreenWrapperProps = ({
   );
 };
 
-const stylesheet = (theme: CustomTheme) => {
+const stylesheet = (theme: AppTheme['colors']) => {
   return StyleSheet.create({
     container: {
       flex: 1,

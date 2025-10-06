@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from 'react-native';
-import { CustomTheme } from '../providers/theme';
+import { AppTheme } from '../providers/theme';
 
-const navStyles = (theme: CustomTheme) => {
+const navStyles = (theme: AppTheme['colors']) => {
   return StyleSheet.create({
     header: {
       backgroundColor: theme.background,
