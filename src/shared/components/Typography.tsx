@@ -40,7 +40,7 @@ const Typography: React.FC<ITypographyProps> = ({
   variant,
   ...rest
 }) => {
-  const { themeColors } = useAppTheme();
+  const { theme } = useAppTheme();
 
   // Variant overrides
   const finalSize = variant ? variantMap[variant].size : size;
@@ -48,14 +48,14 @@ const Typography: React.FC<ITypographyProps> = ({
 
   const computedStyle: TextStyle = useMemo(
     () => ({
-      color: themeColors[colorMap[color]],
+      color: theme.colors[colorMap[color]],
       fontFamily: fontMap[fontFamily][finalWeight],
       textAlign: center ? 'center' : 'left',
       fontSize:
         typeof finalSize === 'number' ? finalSize : fontSizeMap[finalSize],
       lineHeight: lh,
     }),
-    [themeColors, color, fontFamily, finalWeight, center, finalSize, lh],
+    [theme, color, fontFamily, finalWeight, center, finalSize, lh],
   );
 
   return (

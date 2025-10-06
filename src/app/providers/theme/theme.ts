@@ -15,6 +15,7 @@ export type IThemeColor =
   | 'grayButton'
   | 'inputBg'
   | 'grayText'
+  | 'primaryButtonText'
   | 'inverse'
   | 'placeholder'
   | 'inputText'
@@ -26,21 +27,37 @@ export type IThemeColor =
   | 'border'
   | 'backdrop'
   | 'loader'
-  | 'darkGray';
+  | 'darkGray'
+  | 'toastBg';
 
 // --- Shared Design Tokens ---
-const baseTypography = {
+const baseTypography: AppTheme['typography'] = {
   fontFamily: {
     regular: 'OpenSans-Regular',
     bold: 'OpenSans-Bold',
   },
-  sizes: { small: 12, regular: 16, large: 20 },
+  sizes: {
+    small: 12,
+    'extra-small': 10,
+    regular: 14,
+    medium: 18,
+    large: 25,
+    'extra-large': 30,
+    massive: 40,
+  },
   lineHeights: { small: 16, regular: 22, large: 28 },
 };
 
-const baseSpacing = (multiplier: number) => multiplier * 8;
+const baseSpacing = {
+  none: 0,
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 32,
+};
 
-const baseRadius = { sm: 4, md: 8, lg: 16 };
+const baseRadius = { sm: 4, md: 8, lg: 16, full: 999 };
 
 const baseShadows = {
   sm: '0 1px 2px rgba(0,0,0,0.05)',
@@ -58,11 +75,13 @@ export const LightTheme: AppTheme = {
     background: '#FFFFFF',
     primary: '#7F3DFF',
     primaryText: '#7F3DFF',
+    primaryButtonText: '#FFFFFF',
     error: '#F8000F',
     grayButton: '#E8EDF5',
     inputBg: '#FFFFFF',
+    toastBg: '#FFFFFF',
     grayText: '#828282',
-    inverse: '#888888',
+    inverse: '#374151',
     placeholder: '#9CA3AF',
     inputText: '#374151',
     primaryBtnDisabled: 'rgba(255, 69, 0, 0.5)',
@@ -90,11 +109,13 @@ export const DarkTheme: AppTheme = {
     background: '#212731',
     primary: '#7F3DFF',
     primaryText: '#B58FFF',
+    primaryButtonText: '#FFFFFF',
     error: '#F8000F',
     grayButton: '#E8EDF5',
     inputBg: '#181D25',
+    toastBg: '#212731',
     grayText: '#828282',
-    inverse: '#888888',
+    inverse: '#FFFFFF',
     placeholder: '#9CA3AF',
     inputText: '#F5F5F5',
     primaryBtnDisabled: 'rgba(255, 69, 0, 0.5)',

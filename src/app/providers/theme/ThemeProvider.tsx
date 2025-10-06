@@ -70,7 +70,7 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
       value={{
         currentTheme: theme,
         changeTheme,
-        themeColors: themeObject.colors,
+        theme: themeObject,
       }}>
       <View
         style={[

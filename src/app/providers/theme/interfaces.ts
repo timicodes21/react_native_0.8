@@ -1,6 +1,7 @@
 // interfaces.ts
 import React, { ReactNode } from 'react';
 import { IThemeColor } from './theme';
+import { IFontSize } from '@/app/configs/typography.config';
 
 // Available theme names
 export type IThemeName = 'light' | 'dark';
@@ -13,22 +14,26 @@ export interface AppTheme {
       regular: string;
       bold: string;
     };
-    sizes: {
-      small: number;
-      regular: number;
-      large: number;
-    };
+    sizes: Record<IFontSize, number>;
     lineHeights: {
       small: number;
       regular: number;
       large: number;
     };
   };
-  spacing: (multiplier: number) => number;
+  spacing: {
+    none: number;
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+  };
   radius: {
     sm: number;
     md: number;
     lg: number;
+    full: number;
   };
   shadows: {
     sm: string;
@@ -41,7 +46,7 @@ export interface AppTheme {
 export interface IThemeContext {
   changeTheme: (name: IThemeName) => void;
   currentTheme: IThemeName;
-  themeColors: AppTheme['colors'];
+  theme: AppTheme;
 }
 
 // Props for ThemeProvider

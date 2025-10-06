@@ -1,7 +1,14 @@
 import { IThemeColor } from '../providers/theme/theme';
 
 // Reuse these in Typography
-export type IFontColor = 'main' | 'primary' | 'secondary' | 'error' | 'inverse';
+export type IFontColor =
+  | 'main'
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'inverse'
+  | 'primaryButtonText';
+
 export type IFontSize =
   | 'small'
   | 'extra-small'
@@ -28,6 +35,7 @@ export const colorMap: Record<IFontColor, IThemeColor> = {
   primary: 'primary',
   secondary: 'secondary',
   error: 'error',
+  primaryButtonText: 'primaryButtonText',
 };
 
 export const fontSizeMap: Record<IFontSize, number> = {
@@ -44,7 +52,7 @@ export const fontMap: Record<IFontFamily, Record<IFontWeight, string>> = {
   opensans: {
     regular: 'OpenSans-Regular',
     light: 'OpenSans-Light',
-    'semi-bold': 'OpenSans-Medium',
+    'semi-bold': 'OpenSans-SemiBold',
     medium: 'OpenSans-Medium',
     bold: 'OpenSans-Bold',
     'extra-bold': 'OpenSans-Black',
@@ -53,7 +61,7 @@ export const fontMap: Record<IFontFamily, Record<IFontWeight, string>> = {
   roboto: {
     regular: 'Roboto-Regular',
     light: 'Roboto-Light',
-    'semi-bold': 'Roboto-Medium',
+    'semi-bold': 'Roboto-SemiBold',
     medium: 'Roboto-Medium',
     bold: 'Roboto-Bold',
     'extra-bold': 'Roboto-Black',

@@ -11,10 +11,10 @@ type ISpinnerProps = React.FC<
 >;
 
 const Spinner: ISpinnerProps = ({ color, size, style, ...props }) => {
-  const { themeColors } = useAppTheme();
+  const { theme } = useAppTheme();
   return (
     <ActivityIndicator
-      color={themeColors[color || 'main']}
+      color={theme.colors[color || 'main']}
       size={size}
       {...props}
       style={[style]}

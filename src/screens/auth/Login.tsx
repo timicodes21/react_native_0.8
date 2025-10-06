@@ -1,24 +1,33 @@
-import { View, Text, Button } from 'react-native';
-import React from 'react';
+import { stylesWithTheme, useAppTheme } from '@/app/providers/theme';
+import CustomButton from '@/shared/components/CustomButton';
 import ScreenWrapper from '@/shared/components/ScreenWrapper';
-import { showToast } from '@/app/providers/toast';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 const Login = () => {
+  const styles = navStyles();
+  const { changeTheme, currentTheme } = useAppTheme();
   return (
-    <ScreenWrapper style={{ backgroundColor: '#FFFFFF', paddingTop: 100 }}>
+    <ScreenWrapper style={{ paddingTop: 100 }}>
       <View>
-        <Text>Login</Text>
+        <Text style={styles.header}>Login</Text>
       </View>
-      <Button
-        title="Show toast"
-        onPress={() =>
-          showToast({
-            message: 'Hello',
-          })
-        }
-      />
+      <CustomButton
+        containerStyle={styles.button}
+        onPress={() => {
+          changeTheme(currentTheme === 'light' ? 'dark' : 'light');
+        }}>
+        Show Toast
+      </CustomButton>
     </ScreenWrapper>
   );
 };
 
 export default Login;
+
+const navStyles = stylesWithTheme(theme => ({
+  header: { color: theme.colors.error },
+  button: {
+    marginHorizontal: theme.spacing.lg,
+  },
+}));

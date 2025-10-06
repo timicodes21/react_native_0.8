@@ -31,14 +31,14 @@ const ScreenWrapper: IScreenWrapperProps = ({
   statusBarStyle,
   noKeyboardAvoidingView,
 }) => {
-  const { themeColors } = useAppTheme();
-  const styles = stylesheet(themeColors);
+  const { theme } = useAppTheme();
+  const styles = stylesheet(theme);
 
   return noKeyboardAvoidingView ? (
     <View style={[styles.container, style]}>
       <StatusBar
         barStyle={statusBarStyle || 'light-content'}
-        backgroundColor={themeColors.screenBG}
+        backgroundColor={theme.colors.screenBG}
       />
       {children}
     </View>
@@ -48,18 +48,18 @@ const ScreenWrapper: IScreenWrapperProps = ({
       behavior={Platform.select({ ios: 'padding', android: undefined })}>
       <StatusBar
         barStyle={statusBarStyle || 'light-content'}
-        backgroundColor={themeColors.screenBG}
+        backgroundColor={theme.colors.screenBG}
       />
       {children}
     </KeyboardAvoidingView>
   );
 };
 
-const stylesheet = (theme: AppTheme['colors']) => {
+const stylesheet = (theme: AppTheme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.background,
+      backgroundColor: theme.colors.background,
     },
   });
 };
