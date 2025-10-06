@@ -19,6 +19,7 @@ export type IThemeColor =
   | 'inverse'
   | 'placeholder'
   | 'inputText'
+  | 'inputBorder'
   | 'primaryBtnDisabled'
   | 'complementary'
   | 'progressThumbnail'
@@ -52,8 +53,8 @@ const baseSpacing = {
   none: 0,
   xs: 4,
   sm: 8,
-  md: 16,
-  lg: 24,
+  md: 12,
+  lg: 16,
   xl: 32,
 };
 
@@ -89,6 +90,7 @@ export const LightTheme: AppTheme = {
     progressThumbnail: '#474747',
     highLightColor: 'rgba(255,255,255,0.05)',
     border: 'rgba(0,0,0,0.6)',
+    inputBorder: '#9CA3AF',
     backdrop: '#333333',
     loader: '#E0E0E0',
     darkGray: '#999999',
@@ -123,6 +125,7 @@ export const DarkTheme: AppTheme = {
     progressThumbnail: '#474747',
     highLightColor: 'rgba(255,255,255,0.05)',
     border: '#333333',
+    inputBorder: '#181D25',
     backdrop: 'rgba(0,0,0,0.6)',
     loader: '#E0E0E0',
     darkGray: '#999999',

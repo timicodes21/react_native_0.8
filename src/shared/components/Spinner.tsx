@@ -1,25 +1,47 @@
 import React from 'react';
-import { ActivityIndicator, ActivityIndicatorProps } from 'react-native';
-import { IThemeColor } from '../../app/providers/theme/theme';
-import { useAppTheme } from '../../app/providers/theme/themeContext';
+import {
+  ActivityIndicator,
+  ActivityIndicatorProps,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
+import { useAppTheme } from '@/app/providers/theme/themeContext';
+import { IThemeColor } from '@/app/providers/theme/theme';
 
-type ISpinnerProps = React.FC<
-  ActivityIndicatorProps & {
-    color?: IThemeColor;
-    size?: 'small' | 'large' | number;
-  }
->;
+interface SpinnerProps extends ActivityIndicatorProps {
+  /** The theme color key to use for the spinner */
+  color?: IThemeColor;
+  /** Size of the spinner — defaults to "small" */
+  size?: 'small' | 'large' | number;
+  /** Optional custom style */
+  style?: StyleProp<ViewStyle>;
+}
 
-const Spinner: ISpinnerProps = ({ color, size, style, ...props }) => {
+/**
+ * @description
+ * A theme-aware loading spinner that adapts automatically
+ * to the current app theme.
+ *
+ * Usage:
+ * ```tsx
+ * <Spinner />
+ * <Spinner size="large" color="primary" />
+ * ```
+ */
+export const Spinner: React.FC<SpinnerProps> = ({
+  color = 'main',
+  size = 'small',
+  style,
+  ...props
+}) => {
   const { theme } = useAppTheme();
+
   return (
     <ActivityIndicator
-      color={theme.colors[color || 'main']}
-      size={size}
       {...props}
-      style={[style]}
+      color={theme.colors[color]}
+      size={size}
+      style={style}
     />
   );
 };
-
-export default Spinner;

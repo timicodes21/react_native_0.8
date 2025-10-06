@@ -28,7 +28,7 @@ export interface ITypographyProps extends TextProps {
 }
 
 // ---- Typography Component ----
-const Typography: React.FC<ITypographyProps> = ({
+export const Typography: React.FC<ITypographyProps> = ({
   children,
   style,
   center = false,
@@ -98,5 +98,3 @@ export const ListHeader = ({
     {rightComponent}
   </View>
 );
-
-export default Typography;

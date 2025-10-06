@@ -8,7 +8,6 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import Typography from '@/shared/components/Typography';
 import {
   IFontColor,
   IFontSize,
@@ -16,10 +15,11 @@ import {
 } from '@/app/configs/typography.config';
 import { AppTheme, stylesWithTheme, useAppTheme } from '@/app/providers/theme';
 import { HIT_SLOP } from '@/app/constants/values';
+import { Typography } from './Typography';
 
 export type IButtonMode = 'primary' | 'transparent' | 'secondary';
 
-interface ICustomButtonProps extends TouchableOpacityProps {
+interface IAppButtonProps extends TouchableOpacityProps {
   radius?: number;
   width?: DimensionValue;
   children?: ReactNode;
@@ -36,7 +36,7 @@ interface ICustomButtonProps extends TouchableOpacityProps {
   leftIconContainerStyle?: StyleProp<ViewStyle>;
 }
 
-const CustomButton: React.FC<ICustomButtonProps> = ({
+export const AppButton: React.FC<IAppButtonProps> = ({
   children,
   containerStyle,
   isLoading = false,
@@ -122,8 +122,6 @@ const CustomButton: React.FC<ICustomButtonProps> = ({
     </View>
   );
 };
-
-export default CustomButton;
 
 const useStyles = stylesWithTheme(theme => ({
   button: {

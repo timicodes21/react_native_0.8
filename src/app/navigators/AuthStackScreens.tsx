@@ -1,8 +1,8 @@
-import Login from '@/screens/auth/Login';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import navStyles from './styles';
 import { AuthNavigationEnum, AuthStackParamsList } from './types/auth';
+import { Login } from '@/screens/auth';
 
 const AuthStack = createNativeStackNavigator<AuthStackParamsList>();
 
