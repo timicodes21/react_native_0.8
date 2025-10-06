@@ -1,21 +1,41 @@
 import { stylesWithTheme, useAppTheme } from '@/app/providers/theme';
-import { AppButton, AppInput, AppScreen } from '@/shared/components';
-import React from 'react';
+import {
+  AppButton,
+  AppImage,
+  AppInput,
+  AppScreen,
+  AppScrollView,
+} from '@/shared/components';
+import React, { useEffect } from 'react';
+import { useLoader } from '@/app/providers/loader';
 
 export const Login = () => {
   const styles = navStyles();
   const { changeTheme, currentTheme } = useAppTheme();
-  return (
-    <AppScreen style={{ paddingTop: 100, paddingHorizontal: 20 }}>
-      <AppInput placeholder="Email" />
+  const { showLoader } = useLoader();
 
-      <AppButton
-        containerStyle={styles.button}
-        onPress={() => {
-          changeTheme(currentTheme === 'light' ? 'dark' : 'light');
-        }}>
-        Change Theme
-      </AppButton>
+  useEffect(() => {
+    showLoader({ text: 'Loading...' });
+  }, []);
+
+  return (
+    <AppScreen style={{ paddingTop: 100 }}>
+      <AppScrollView>
+        <AppInput placeholder="Email" />
+
+        <AppImage
+          containerStyle={{ width: 300, height: 300, marginVertical: 20 }}
+          style={{ borderRadius: 12 }}
+        />
+
+        <AppButton
+          containerStyle={styles.button}
+          onPress={() => {
+            changeTheme(currentTheme === 'light' ? 'dark' : 'light');
+          }}>
+          Change Theme
+        </AppButton>
+      </AppScrollView>
     </AppScreen>
   );
 };
@@ -27,3 +47,5 @@ const navStyles = stylesWithTheme(theme => ({
     marginTop: theme.spacing.xl,
   },
 }));
+
+Login.displayName = 'Login';

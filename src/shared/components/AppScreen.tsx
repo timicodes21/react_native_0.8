@@ -68,3 +68,5 @@ const getStyles = (theme: AppTheme) =>
       backgroundColor: theme.colors.background,
     },
   });
+
+AppScreen.displayName = 'AppScreen';

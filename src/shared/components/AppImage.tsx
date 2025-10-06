@@ -31,7 +31,7 @@ export const AppImage: React.FC<AppImageProps> = memo(
   ({
     uri,
     source,
-    showLoader = true,
+    showLoader = false,
     loaderColor,
     containerStyle,
     fallbackUri,
@@ -51,7 +51,7 @@ export const AppImage: React.FC<AppImageProps> = memo(
       if (source) return source;
       if (uri) return { uri };
       return fallbackImage;
-    }, [error, fallbackUri, source, uri]);
+    }, [error, fallbackUri, source, uri, currentTheme]);
 
     return (
       <View style={[styles.container, containerStyle]}>
@@ -87,3 +87,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+
+AppImage.displayName = 'AppImage';

@@ -98,3 +98,7 @@ export const ListHeader = ({
     {rightComponent}
   </View>
 );
+
+Typography.displayName = 'Typography';
+ErrorText.displayName = 'ErrorText';
+ListHeader.displayName = 'ListHeader';

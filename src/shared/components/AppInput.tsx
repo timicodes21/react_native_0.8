@@ -141,3 +141,5 @@ const useStyles = stylesWithTheme(theme => ({
     marginLeft: theme.spacing.xs,
   },
 }));
+
+AppInput.displayName = 'AppInput';

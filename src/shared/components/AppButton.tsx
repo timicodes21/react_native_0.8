@@ -137,3 +137,5 @@ const useStyles = stylesWithTheme(theme => ({
     marginRight: theme.spacing.xs,
   },
 }));
+
+AppButton.displayName = 'AppButton';
