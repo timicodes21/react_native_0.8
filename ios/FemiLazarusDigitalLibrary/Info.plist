@@ -64,6 +64,11 @@
 		<string>Roboto-Medium.ttf</string>
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-SemiBold.ttf</string>
+		<string>proximanova_bold.otf</string>
+		<string>proximanova_extrabold.otf</string>
+		<string>proximanova_light.otf</string>
+		<string>proximanova_black.ttf</string>
+		<string>proximanova_regular.ttf</string>
 	</array>
 </dict>
 </plist>

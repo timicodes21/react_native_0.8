@@ -8,6 +8,7 @@ import {
 } from '@/shared/components';
 import React, { useEffect } from 'react';
 import { useLoader } from '@/app/providers/loader';
+import { AppLogoMark } from '@/shared/icons';
 
 export const Login = () => {
   const styles = navStyles();
@@ -22,6 +23,8 @@ export const Login = () => {
     <AppScreen style={{ paddingTop: 100 }}>
       <AppScrollView>
         <AppInput placeholder="Email" />
+
+        <AppLogoMark />
 
         <AppImage
           containerStyle={{ width: 300, height: 300, marginVertical: 20 }}

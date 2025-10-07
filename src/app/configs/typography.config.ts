@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { IThemeColor } from '../providers/theme/theme';
 
 // Reuse these in Typography
@@ -25,7 +26,7 @@ export type IFontWeight =
   | 'extra-bold'
   | 'light'
   | 'black';
-export type IFontFamily = 'opensans' | 'roboto';
+export type IFontFamily = 'opensans' | 'roboto' | 'proxima';
 export type IVariant = 'h1' | 'h2' | 'h3' | 'body' | 'caption';
 
 // ---- Config Maps ----
@@ -66,6 +67,23 @@ export const fontMap: Record<IFontFamily, Record<IFontWeight, string>> = {
     bold: 'Roboto-Bold',
     'extra-bold': 'Roboto-Black',
     black: 'Roboto-Black',
+  },
+  proxima: {
+    regular:
+      Platform.OS === 'android' ? 'proximanova_regular' : 'ProximaNova-Regular',
+    light:
+      Platform.OS === 'android' ? 'proximanova_light' : 'ProximaNova-Light',
+    'semi-bold':
+      Platform.OS === 'android' ? 'proximanova_bold' : 'ProximaNova-Bold',
+    medium:
+      Platform.OS === 'android' ? 'proximanova_regular' : 'ProximaNova-Regular',
+    bold: Platform.OS === 'android' ? 'proximanova_bold' : 'ProximaNova-Bold',
+    'extra-bold':
+      Platform.OS === 'android'
+        ? 'proximanova_extrabold'
+        : 'ProximaNova-ExtraBold',
+    black:
+      Platform.OS === 'android' ? 'proximanova_black' : 'ProximaNova-Black',
   },
 };
 
