@@ -6,7 +6,7 @@ import {
 import { useLoader } from '@/app/providers/loader';
 import { useAppTheme } from '@/app/providers/theme';
 import { AuthHeader } from '@/modules/auth/components';
-import { useLogin } from '@/modules/auth/hooks';
+import { useSignup } from '@/modules/auth/hooks';
 import { loginStyles as styles } from '@/modules/auth/styles';
 import {
   AppButton,
@@ -30,14 +30,14 @@ import React, { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import { View } from 'react-native';
 
-export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
+export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
   navigation,
 }) => {
   const { showLoader } = useLoader();
   const { theme } = useAppTheme();
   const { show, toggleShow } = useToggle();
 
-  const { control, errors, handleSubmit, onSubmit } = useLogin();
+  const { control, errors, handleSubmit, onSubmit } = useSignup();
 
   useEffect(() => {
     showLoader({ text: 'Loading...' });
@@ -47,7 +47,7 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
     <AppScreen>
       <AppScrollView contentContainerStyle={[styles.container]}>
         <View>
-          <AuthHeader headerText="Login" />
+          <AuthHeader headerText="Signup" />
           <Controller
             control={control}
             name="email"
@@ -74,6 +74,7 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
                 value={value}
                 leftIcon={<LockIcon />}
                 onBlur={onBlur}
+                mb="xl"
                 onChangeText={onChange}
                 errorText={errors?.password?.message}
                 secureTextEntry={!show}
@@ -86,9 +87,21 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
             )}
           />
 
-          <Typography style={[styles.forgotPasswordText]} color="primary">
-            Forgot Password?
-          </Typography>
+          <Controller
+            control={control}
+            name="confirmPassword"
+            render={({ field: { onChange, value, onBlur } }) => (
+              <AppInput
+                placeholder="Confirm Password"
+                value={value}
+                leftIcon={<LockIcon />}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                errorText={errors?.confirmPassword?.message}
+                secureTextEntry={!show}
+              />
+            )}
+          />
         </View>
         <View>
           <View style={[styles.continueWithContainer]}>
@@ -118,16 +131,16 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
           </View>
         </View>
         <View>
-          <AppButton onPress={handleSubmit(onSubmit)}>Login</AppButton>
+          <AppButton onPress={handleSubmit(onSubmit)}>Sign Up</AppButton>
           <Typography size="small" style={[styles.bottomTextContainer]} center>
-            Don’t have an account?
+            Already have an account?
             <Typography
               size="small"
               weight="semi-bold"
               color="primary"
-              onPress={() => navigation.replace(AuthNavigationEnum.SIGN_UP)}>
+              onPress={() => navigation.replace(AuthNavigationEnum.LOGIN)}>
               {' '}
-              Signup
+              Log in
             </Typography>
           </Typography>
         </View>
@@ -136,4 +149,4 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
   );
 };
 
-Login.displayName = 'Login';
+Signup.displayName = 'Signup';

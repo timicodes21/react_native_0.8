@@ -10,7 +10,7 @@ export type LoginFormValues = {
 export const useLogin = () => {
   const LoginSchema = z.object({
     email: email({ message: 'Please enter a valid email' }),
-    password: string().min(1, { message: 'Please enter your password' }),
+    password: string().trim().min(1, { message: 'Please enter your password' }),
   });
 
   const {
