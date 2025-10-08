@@ -55,7 +55,8 @@ const baseSpacing = {
   sm: 8,
   md: 12,
   lg: 16,
-  xl: 32,
+  xl: 20,
+  xxl: 24,
 };
 
 const baseRadius = { sm: 4, md: 8, lg: 16, full: 999 };
@@ -71,7 +72,7 @@ export const LightTheme: AppTheme = {
   colors: {
     ...DefaultTheme.colors,
     main: '#374151',
-    secondary: '#A6A6A6',
+    secondary: '#84739D',
     screenBG: '#FFFFFF',
     background: '#FFFFFF',
     primary: '#7F3DFF',
@@ -106,7 +107,7 @@ export const DarkTheme: AppTheme = {
   colors: {
     ...RNDarkTheme.colors,
     main: '#F5F5F5',
-    secondary: '#A6A6A6',
+    secondary: '#9CA3AF',
     screenBG: '#212731',
     background: '#212731',
     primary: '#7F3DFF',

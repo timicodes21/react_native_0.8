@@ -1,7 +1,7 @@
 import { Dimensions, Platform } from 'react-native';
 
 export const APP_NAME = `LIGHT_NATION`;
-export const SCREEN_HORIZONTAL_SPACING = 18;
+export const SCREEN_HORIZONTAL_SPACING = 20;
 export const BOTTOMSHEET_HORIZONTAL_MARGIN = 20;
 export const INPUT_MARGIN_BOTTOM = 24;
 export const TAB_BAR_HEIGHT = Platform.OS === 'android' ? 60 : 55;

@@ -7,3 +7,5 @@ export * from './Typography';
 export * from './AppScrollView';
 export * from './AppGestureScrollView';
 export * from './AppLoader';
+export * from './AppTouchableOpacity';
+export * from './Surface';

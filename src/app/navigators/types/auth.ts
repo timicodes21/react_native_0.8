@@ -4,11 +4,13 @@ import React from 'react';
 export enum AuthNavigationEnum {
   LOGIN = 'Login',
   SPLASHSCREEN = 'Splashscreen',
+  WELCOME_TOUR = 'WelcomeTour',
 }
 
 export type AuthStackParamsList = {
   [AuthNavigationEnum.LOGIN]: undefined;
   [AuthNavigationEnum.SPLASHSCREEN]: undefined;
+  [AuthNavigationEnum.WELCOME_TOUR]: undefined;
 };
 
 export type AuthScreenNavigationProps<

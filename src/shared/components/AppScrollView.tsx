@@ -44,7 +44,7 @@ export const AppScrollView: React.FC<AppScrollViewProps> = React.memo(
           paddingBottom: bottom + pb,
           paddingHorizontal: noHorizontalPadding
             ? 0
-            : (theme.spacing?.md ?? SCREEN_HORIZONTAL_SPACING),
+            : SCREEN_HORIZONTAL_SPACING,
         },
         contentContainerStyle,
       ],

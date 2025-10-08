@@ -28,6 +28,7 @@ export interface AppTheme {
     md: number;
     lg: number;
     xl: number;
+    xxl: number;
   };
   radius: {
     sm: number;

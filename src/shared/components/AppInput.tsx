@@ -50,7 +50,7 @@ export const AppInput: React.FC<InputProps> = ({
   // 🎨 compute runtime styles (dynamic ones only)
   const containerDynamicStyle = useMemo(
     () => ({
-      borderRadius: radius ?? theme.radius.md,
+      borderRadius: radius ?? theme.radius.lg,
       backgroundColor: theme.colors[bgColor],
       borderColor: theme.colors[borderColor ?? bgColor],
     }),
@@ -126,8 +126,8 @@ const useStyles = stylesWithTheme(theme => ({
     color: theme.colors.inputText,
     fontSize: theme.typography.sizes.regular,
     paddingVertical: Platform.select({
-      ios: theme.spacing.md,
-      android: theme.spacing.md,
+      ios: theme.spacing.lg,
+      android: theme.spacing.lg,
     }),
   },
   labelText: {
