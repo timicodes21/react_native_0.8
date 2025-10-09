@@ -28,6 +28,7 @@ import {
 } from '@/shared/icons';
 import React, { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
@@ -43,11 +44,13 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
     showLoader({ text: 'Loading...' });
   }, []);
 
+  const { t } = useTranslation();
+
   return (
     <AppScreen>
       <AppScrollView contentContainerStyle={[styles.container]}>
         <View>
-          <AuthHeader headerText="Login" />
+          <AuthHeader headerText={t('login.title')} />
           <Controller
             control={control}
             name="email"
@@ -55,7 +58,7 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
               <AppInput
                 mb="xl"
                 leftIcon={<MailIcon width={24} height={24} />}
-                placeholder="Enter your email"
+                placeholder={t('login.emailPlaceholder')}
                 keyboardType="email-address"
                 value={value}
                 onBlur={onBlur}
@@ -70,7 +73,7 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
             name="password"
             render={({ field: { onChange, value, onBlur } }) => (
               <AppInput
-                placeholder="Password"
+                placeholder={t('login.passwordPlaceholder')}
                 value={value}
                 leftIcon={<LockIcon />}
                 onBlur={onBlur}
@@ -87,7 +90,7 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
           />
 
           <Typography style={[styles.forgotPasswordText]} color="primary">
-            Forgot Password?
+            {t('login.forgotPassword')}?
           </Typography>
         </View>
         <View>
@@ -95,7 +98,9 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
             <View
               style={[styles.line, { borderTopColor: theme.colors.primary }]}
             />
-            <Typography color="secondary">or continue with</Typography>
+            <Typography color="secondary">
+              {t('login.orContinueWith')}
+            </Typography>
             <View
               style={[styles.line, { borderTopColor: theme.colors.primary }]}
             />
@@ -118,16 +123,18 @@ export const Login: AuthScreenNavigationProps<AuthNavigationEnum.LOGIN> = ({
           </View>
         </View>
         <View>
-          <AppButton onPress={handleSubmit(onSubmit)}>Login</AppButton>
+          <AppButton onPress={handleSubmit(onSubmit)}>
+            {t('login.buttonText')}
+          </AppButton>
           <Typography size="small" style={[styles.bottomTextContainer]} center>
-            Don’t have an account?
+            {t('login.noAccountPrefix')}?
             <Typography
               size="small"
               weight="semi-bold"
               color="primary"
               onPress={() => navigation.replace(AuthNavigationEnum.SIGN_UP)}>
               {' '}
-              Signup
+              {t('login.signupLink')}
             </Typography>
           </Typography>
         </View>

@@ -1,0 +1,42 @@
+{
+  "welcomeTour": {
+    "audioTitle": "AUDIO MESSAGES",
+    "audioHeadline": "ELEVATE YOUR EARS",
+    "audioDescription": "For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community.",
+
+    "videoTitle": "VIDEO CONTENT",
+    "videoHeadline": "STEP INTO A DIVINE SPACE",
+    "videoDescription": "For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community.",
+
+    "ebooksTitle": "E-BOOKS",
+    "ebooksHeadline": "ENRICH YOUR MIND",
+    "ebooksDescription": "For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community.",
+
+    "skip": "Skip",
+    "next": "Next"
+  },
+  "login": {
+    "title": "Login",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Password",
+    "forgotPassword": "Forgot Password ?",
+    "orContinueWith": "or continue with",
+    "buttonText": "Login",
+    "noAccountPrefix": "Don't have an account?",
+    "signupLink": "Signup"
+  },
+  "signup": {
+    "title": "Signup",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "orContinueWith": "Signup with",
+    "buttonText": "Sign up",
+    "alreadyHaveAccountPrefix": "Already have an account?",
+    "loginLink": "Log in",
+    "termsPrefix": "By signing up you agree to our",
+    "termsLink": "terms of use."
+  },
+  "libraryName": "Femi Lazarus Digital Library",
+  "languageCode": "EN"
+}

@@ -28,6 +28,7 @@ import {
 } from '@/shared/icons';
 import React, { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
@@ -38,6 +39,7 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
   const { show, toggleShow } = useToggle();
 
   const { control, errors, handleSubmit, onSubmit } = useSignup();
+  const { t } = useTranslation();
 
   useEffect(() => {
     showLoader({ text: 'Loading...' });
@@ -47,7 +49,7 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
     <AppScreen>
       <AppScrollView contentContainerStyle={[styles.container]}>
         <View>
-          <AuthHeader headerText="Signup" />
+          <AuthHeader headerText={t('signup.title')} />
           <Controller
             control={control}
             name="email"
@@ -55,7 +57,7 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
               <AppInput
                 mb="xl"
                 leftIcon={<MailIcon width={24} height={24} />}
-                placeholder="Enter your email"
+                placeholder={t('signup.emailPlaceholder')}
                 keyboardType="email-address"
                 value={value}
                 onBlur={onBlur}
@@ -70,7 +72,7 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
             name="password"
             render={({ field: { onChange, value, onBlur } }) => (
               <AppInput
-                placeholder="Password"
+                placeholder={t('login.passwordPlaceholder')}
                 value={value}
                 leftIcon={<LockIcon />}
                 onBlur={onBlur}
@@ -92,7 +94,7 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
             name="confirmPassword"
             render={({ field: { onChange, value, onBlur } }) => (
               <AppInput
-                placeholder="Confirm Password"
+                placeholder={t('signup.confirmPasswordPlaceholder')}
                 value={value}
                 leftIcon={<LockIcon />}
                 onBlur={onBlur}
@@ -108,7 +110,9 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
             <View
               style={[styles.line, { borderTopColor: theme.colors.primary }]}
             />
-            <Typography color="secondary">or continue with</Typography>
+            <Typography color="secondary">
+              {t('signup.orContinueWith')}
+            </Typography>
             <View
               style={[styles.line, { borderTopColor: theme.colors.primary }]}
             />
@@ -131,16 +135,18 @@ export const Signup: AuthScreenNavigationProps<AuthNavigationEnum.SIGN_UP> = ({
           </View>
         </View>
         <View>
-          <AppButton onPress={handleSubmit(onSubmit)}>Sign Up</AppButton>
+          <AppButton onPress={handleSubmit(onSubmit)}>
+            {t('signup.buttonText')}
+          </AppButton>
           <Typography size="small" style={[styles.bottomTextContainer]} center>
-            Already have an account?
+            {t('signup.alreadyHaveAccountPrefix')}?
             <Typography
               size="small"
               weight="semi-bold"
               color="primary"
               onPress={() => navigation.replace(AuthNavigationEnum.LOGIN)}>
               {' '}
-              Log in
+              {t('signup.loginLink')}
             </Typography>
           </Typography>
         </View>

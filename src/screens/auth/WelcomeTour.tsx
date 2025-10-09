@@ -24,28 +24,26 @@ import {
   AuthNavigationEnum,
   AuthScreenNavigationProps,
 } from '@/app/navigators/types/auth';
+import i18n from '@/app/providers/i18n/i18n';
 
 const data = [
   {
     image: WelcomeImage,
-    title: 'Audio Messages',
-    highlight: 'ELEVATE YOUR EARS',
-    content:
-      'For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community.',
+    title: i18n.t('welcomeTour.audioTitle'),
+    highlight: i18n.t('welcomeTour.audioHeadline'),
+    content: i18n.t('welcomeTour.audioDescription'),
   },
   {
     image: WelcomeImage,
-    title: 'Video Content',
-    highlight: 'STEP INTO A DIVINE SPACE',
-    content:
-      'For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community..',
+    title: i18n.t('welcomeTour.videoTitle'),
+    highlight: i18n.t('welcomeTour.videoHeadline'),
+    content: i18n.t('welcomeTour.audioDescription'),
   },
   {
     image: WelcomeImage,
-    title: 'E-books',
-    highlight: 'ENRICH YOUR MIND',
-    content:
-      'For engaging messages and programs. Tune in to real-time broadcasts of sermons, and interactive virtual community.',
+    title: i18n.t('welcomeTour.videoTitle'),
+    highlight: i18n.t('welcomeTour.ebooksHeadline'),
+    content: i18n.t('welcomeTour.audioDescription'),
   },
 ];
 

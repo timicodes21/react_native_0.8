@@ -1,0 +1,42 @@
+{
+  "welcomeTour": {
+    "audioTitle": "MESSAGES AUDIO",
+    "audioHeadline": "ÉLEVEZ VOS OREILLES",
+    "audioDescription": "Pour des messages et programmes engageants. Écoutez les émissions en temps réel des sermons et la communauté virtuelle interactive.",
+
+    "videoTitle": "CONTENU VIDÉO",
+    "videoHeadline": "ENTREZ DANS UN ESPACE DIVIN",
+    "videoDescription": "Pour des messages et programmes engageants. Écoutez les émissions en temps réel des sermons et la communauté virtuelle interactive.",
+
+    "ebooksTitle": "E-BOOKS",
+    "ebooksHeadline": "ENRICHISSEZ VOTRE ESPRIT",
+    "ebooksDescription": "Pour des messages et programmes engageants. Écoutez les émissions en temps réel des sermons et la communauté virtuelle interactive.",
+
+    "skip": "Passer",
+    "next": "Suivant"
+  },
+  "login": {
+    "title": "Connexion",
+    "emailPlaceholder": "Entrez votre email",
+    "passwordPlaceholder": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "orContinueWith": "ou continuer avec",
+    "buttonText": "Connexion",
+    "noAccountPrefix": "Vous n'avez pas de compte ?",
+    "signupLink": "Inscription"
+  },
+  "signup": {
+    "title": "Inscription",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Mot de passe",
+    "confirmPasswordPlaceholder": "Confirmer le mot de passe",
+    "orContinueWith": "S'inscrire avec",
+    "buttonText": "S'inscrire",
+    "alreadyHaveAccountPrefix": "Vous avez déjà un compte ?",
+    "loginLink": "Connectez-vous",
+    "termsPrefix": "En vous inscrivant, vous acceptez nos",
+    "termsLink": "conditions d'utilisation."
+  },
+  "libraryName": "Femi Lazarus Digital Library",
+  "languageCode": "FR"
+}
