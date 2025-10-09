@@ -14,6 +14,7 @@ export type IFontSize =
   | 'small'
   | 'extra-small'
   | 'regular'
+  | 'normal'
   | 'medium'
   | 'large'
   | 'extra-large'
@@ -43,6 +44,7 @@ export const fontSizeMap: Record<IFontSize, number> = {
   small: 12,
   'extra-small': 10,
   regular: 14,
+  normal: 16,
   medium: 18,
   large: 25,
   'extra-large': 30,

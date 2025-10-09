@@ -6,3 +6,6 @@ export * from './GoogleIcon';
 export * from './AppleIcon';
 export * from './EyeIcon';
 export * from './EyeSlashIcon';
+export * from './DiscoverIcon';
+export * from './HeartIcon';
+export * from './PrayerIcon';

@@ -29,7 +29,8 @@ export type IThemeColor =
   | 'backdrop'
   | 'loader'
   | 'darkGray'
-  | 'toastBg';
+  | 'toastBg'
+  | 'grayBg';
 
 // --- Shared Design Tokens ---
 const baseTypography: AppTheme['typography'] = {
@@ -41,6 +42,7 @@ const baseTypography: AppTheme['typography'] = {
     small: 12,
     'extra-small': 10,
     regular: 14,
+    normal: 16,
     medium: 18,
     large: 25,
     'extra-large': 30,
@@ -95,6 +97,7 @@ export const LightTheme: AppTheme = {
     backdrop: '#333333',
     loader: '#E0E0E0',
     darkGray: '#999999',
+    grayBg: '#F5F5F5',
   },
   typography: baseTypography,
   spacing: baseSpacing,
@@ -130,6 +133,7 @@ export const DarkTheme: AppTheme = {
     backdrop: 'rgba(0,0,0,0.6)',
     loader: '#E0E0E0',
     darkGray: '#999999',
+    grayBg: '#F5F5F5',
   },
   typography: baseTypography,
   spacing: baseSpacing,

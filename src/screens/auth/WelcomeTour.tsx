@@ -25,6 +25,7 @@ import {
   AuthScreenNavigationProps,
 } from '@/app/navigators/types/auth';
 import i18n from '@/app/providers/i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 const data = [
   {
@@ -95,6 +96,8 @@ export const WelcomeTour: AuthScreenNavigationProps<
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <AppScreen>
       <FlatList
@@ -130,7 +133,7 @@ export const WelcomeTour: AuthScreenNavigationProps<
               activeOpacity={TOUCH_OPACITY}
               onPress={handleSkip}>
               <Typography style={[styles.text]} weight="medium">
-                Skip
+                {t('welcomeTour.skip')}
               </Typography>
             </AppTouchableOpacity>
             <SlideIndicator data={[1, 2, 3]} scrollX={scrollX} />
@@ -138,7 +141,7 @@ export const WelcomeTour: AuthScreenNavigationProps<
               activeOpacity={TOUCH_OPACITY}
               onPress={handleNext}>
               <Typography style={[styles.text]} weight="medium">
-                Next
+                {t('welcomeTour.next')}
               </Typography>
             </AppTouchableOpacity>
           </View>

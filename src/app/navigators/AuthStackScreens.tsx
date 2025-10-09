@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import navStyles from './styles';
 import { AuthNavigationEnum, AuthStackParamsList } from './types/auth';
-import { Login, Signup, Splashscreen } from '@/screens/auth';
+import { ChooseInterests, Login, Signup, Splashscreen } from '@/screens/auth';
 import { WelcomeTour } from '@/screens/auth/WelcomeTour';
 import { AuthScreenLogo } from '@/modules/auth/components';
 
@@ -25,6 +25,13 @@ const AuthStackScreens = () => {
         options={{
           headerTitle: '',
           headerRight: () => <AuthScreenLogo />,
+        }}
+      />
+      <AuthStack.Screen
+        name={AuthNavigationEnum.CHOOSE_INTERESTS}
+        component={ChooseInterests}
+        options={{
+          headerShown: false,
         }}
       />
       <AuthStack.Screen

@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
+import es from './locales/es.json';
 import { StoreKeys } from '@/app/constants/store';
 
 export const AVAILABLE_LANGS = ['en', 'fr', 'es'] as const;
@@ -11,9 +12,10 @@ export type AppLanguage = (typeof AVAILABLE_LANGS)[number];
 const resources = {
   en: { translation: en },
   fr: { translation: fr },
+  es: { translation: es },
 };
 
-const DEFAULT_LANGUAGE: AppLanguage = 'fr';
+const DEFAULT_LANGUAGE: AppLanguage = 'es';
 
 /**
  * Initialize i18n

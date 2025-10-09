@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: FULL_WIDTH,
-    height: 320,
+    height: 350,
     // backgroundColor: theme.colors.background,
     borderRadius: 20,
     paddingTop: 30,

@@ -6,6 +6,7 @@ export enum AuthNavigationEnum {
   SIGN_UP = 'Signup',
   SPLASHSCREEN = 'Splashscreen',
   WELCOME_TOUR = 'WelcomeTour',
+  CHOOSE_INTERESTS = 'ChooseInterests',
 }
 
 export type AuthStackParamsList = {
@@ -13,6 +14,7 @@ export type AuthStackParamsList = {
   [AuthNavigationEnum.SIGN_UP]: undefined;
   [AuthNavigationEnum.SPLASHSCREEN]: undefined;
   [AuthNavigationEnum.WELCOME_TOUR]: undefined;
+  [AuthNavigationEnum.CHOOSE_INTERESTS]: undefined;
 };
 
 export type AuthScreenNavigationProps<
