@@ -37,6 +37,23 @@
     "termsPrefix": "By signing up you agree to our",
     "termsLink": "terms of use."
   },
+  "interestsSelection": {
+    "title": "Choose Your Interests",
+    "subtitle": "Select up to 12 areas of spiritual growth",
+    "discoveryCardTitle": "Discover What Drives You",
+    "discoveryCardCount": "0/12",
+    "interest1Title": "Divine Healing",
+    "interest1Description": "Supernatural healing testimonies",
+    "interest2Title": "Miracles & Signs",
+    "interest2Description": "Miraculous encounters with God",
+    "interest3Title": "Prayer & Intercession",
+    "interest3Description": "Powerful prayer teachings",
+    "interest4Title": "Breakthrough",
+    "interest4Description": "Building godly relationships",
+    "buttonText": "Continue",
+    "skipTextPrefix": "Skip for now -",
+    "skipTextLink": "I'll set my interests later"
+  },
   "libraryName": "Femi Lazarus Digital Library",
   "languageCode": "EN"
 }

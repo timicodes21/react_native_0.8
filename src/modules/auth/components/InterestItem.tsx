@@ -1,12 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import React from 'react';
 import { font, FULL_WIDTH } from '@/app/constants/values';
-import {
-  Checkbox,
-  shadowStyle,
-  Surface,
-  Typography,
-} from '@/shared/components';
+import { Checkbox, Surface, Typography } from '@/shared/components';
 import { PrayerIcon } from '@/shared/icons';
 
 interface IProps {
@@ -23,7 +18,13 @@ export const InterestItem: React.FC<IProps> = ({
   onChange,
 }) => {
   return (
-    <View style={[styles.container, styles.flex, shadowStyle]}>
+    <Surface
+      style={[styles.container, styles.flex]}
+      shadow
+      borderColor={active ? 'secondary' : 'background'}
+      borderWidth={0.5}
+      height={90}
+      width={FULL_WIDTH}>
       <View style={[styles.flex]}>
         <Surface
           size={48}
@@ -34,16 +35,23 @@ export const InterestItem: React.FC<IProps> = ({
           <PrayerIcon />
         </Surface>
         <View>
-          <Typography size="normal" weight="semi-bold" style={[styles.text]}>
+          <Typography
+            size="normal"
+            weight="semi-bold"
+            style={[styles.text]}
+            ellipsizeMode="tail">
             {title}
           </Typography>
-          <Typography color="secondary" style={[styles.text]}>
+          <Typography
+            color="secondary"
+            style={[styles.text]}
+            ellipsizeMode="tail">
             {text}
           </Typography>
         </View>
       </View>
       <Checkbox onChange={onChange} checked={!!active} />
-    </View>
+    </Surface>
   );
 };
 
@@ -53,14 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   flex: {
     flexDirection: 'row',
@@ -68,6 +68,6 @@ const styles = StyleSheet.create({
     columnGap: font.w(12),
   },
   text: {
-    width: FULL_WIDTH - (48 + font.h(60)),
+    width: FULL_WIDTH - (48 + font.h(80)),
   },
 });

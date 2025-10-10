@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   AppScreen,
   AppScrollView,
@@ -12,10 +12,13 @@ import {
 import { View } from 'react-native';
 import { chooseInterestsStyles } from '@/modules/auth/styles';
 import { DiscoverIcon, HeartIcon } from '@/shared/icons';
+import { interests, useChooseInterests } from '@/modules/auth/hooks';
+import { useTranslation } from 'react-i18next';
 
 export const ChooseInterests = () => {
   const styles = chooseInterestsStyles();
-  const [checked, setChecked] = useState(false);
+  const { handleChange, selectedInterests } = useChooseInterests();
+  const { t } = useTranslation();
 
   return (
     <AppScreen>
@@ -27,7 +30,7 @@ export const ChooseInterests = () => {
           </Surface>
           <View>
             <Typography weight="semi-bold" size="normal">
-              Discover What Drives You
+              {t('interestsSelection.discoveryCardTitle')}
             </Typography>
             <Surface
               style={[styles.selectedContainer]}
@@ -45,12 +48,14 @@ export const ChooseInterests = () => {
           </View>
         </View>
         <View style={[styles.interestsContainer]}>
-          <InterestItem
-            text="Supernatural healing testimonies"
-            title="Divine Healing"
-            active={checked}
-            onChange={() => setChecked(prev => !prev)}
-          />
+          {interests.map(item => (
+            <InterestItem
+              text={item?.description ?? ''}
+              title={item?.title ?? ''}
+              active={selectedInterests.includes(item?.id)}
+              onChange={() => handleChange(item?.id)}
+            />
+          ))}
         </View>
       </AppScrollView>
     </AppScreen>

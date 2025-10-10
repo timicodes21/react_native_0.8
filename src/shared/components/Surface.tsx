@@ -61,7 +61,7 @@ export const shadowStyle: ViewStyle = Platform.select({
     shadowColor: '#000',
     shadowOpacity: 0.15,
     shadowRadius: 6,
-    // shadowOffset: { width: 0, height: 3 },
+    shadowOffset: { width: 0, height: 3 },
   },
   android: {
     elevation: 4,

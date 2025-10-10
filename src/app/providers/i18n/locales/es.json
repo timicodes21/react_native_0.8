@@ -37,6 +37,23 @@
     "termsPrefix": "Al registrarte, aceptas nuestros",
     "termsLink": "términos de uso."
   },
+  "interestsSelection": {
+    "title": "Elige Tus Intereses",
+    "subtitle": "Selecciona hasta 12 áreas de crecimiento espiritual",
+    "discoveryCardTitle": "Descubre Lo Que Te Impulsa",
+    "discoveryCardCount": "0/12",
+    "interest1Title": "Sanación Divina",
+    "interest1Description": "Testimonios de sanación sobrenatural",
+    "interest2Title": "Milagros y Señales",
+    "interest2Description": "Encuentros milagrosos con Dios",
+    "interest3Title": "Oración e Intercesión",
+    "interest3Description": "Poderosas enseñanzas sobre la oración",
+    "interest4Title": "Avance",
+    "interest4Description": "Construyendo relaciones piadosas",
+    "buttonText": "Continuar",
+    "skipTextPrefix": "Saltar por ahora -",
+    "skipTextLink": "Estableceré mis intereses más tarde"
+  },
   "libraryName": "Femi Lazarus Digital Library",
   "languageCode": "ES"
 }

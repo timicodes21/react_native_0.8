@@ -4,10 +4,12 @@ import { Typography } from '@/shared/components';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAppTheme } from '@/app/providers/theme';
 import { font } from '@/app/constants/values';
+import { useTranslation } from 'react-i18next';
 
 export const ChooseInterestsHeaderTitle = () => {
   const { top } = useSafeAreaInsets();
   const { theme } = useAppTheme();
+  const { t } = useTranslation();
   return (
     <View
       style={{
@@ -16,10 +18,10 @@ export const ChooseInterestsHeaderTitle = () => {
         paddingHorizontal: theme.spacing.lg,
       }}>
       <Typography size="large" weight="semi-bold">
-        Choose Your Interests
+        {t('interestsSelection.title')}
       </Typography>
       <Typography color="secondary">
-        Select up to 12 areas of spiritual growth
+        {t('interestsSelection.subtitle')}
       </Typography>
     </View>
   );

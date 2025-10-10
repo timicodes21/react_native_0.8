@@ -37,6 +37,23 @@
     "termsPrefix": "En vous inscrivant, vous acceptez nos",
     "termsLink": "conditions d'utilisation."
   },
+  "interestsSelection": {
+    "title": "Choisissez Vos Intérêts",
+    "subtitle": "Sélectionnez jusqu'à 12 domaines de croissance spirituelle",
+    "discoveryCardTitle": "Découvrez Ce Qui Vous Anime",
+    "discoveryCardCount": "0/12",
+    "interest1Title": "Guérison Divine",
+    "interest1Description": "Témoignages de guérison surnaturelle",
+    "interest2Title": "Miracles & Signes",
+    "interest2Description": "Rencontres miraculeuses avec Dieu",
+    "interest3Title": "Prière & Intercession",
+    "interest3Description": "Enseignements puissants sur la prière",
+    "interest4Title": "Percée",
+    "interest4Description": "Construire des relations pieuses",
+    "buttonText": "Continuer",
+    "skipTextPrefix": "Passer pour l'instant -",
+    "skipTextLink": "Je définirai mes intérêts plus tard"
+  },
   "libraryName": "Femi Lazarus Digital Library",
   "languageCode": "FR"
 }
