@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
 import { stylesWithTheme } from '../providers/theme';
+import { font, SCREEN_HORIZONTAL_SPACING } from '../constants/values';
 
 const navStyles = stylesWithTheme(theme => ({
   header: {
@@ -10,20 +10,25 @@ const navStyles = stylesWithTheme(theme => ({
   headerTitle: {
     color: theme.colors.main,
     fontSize: 18,
-    fontFamily: 'Aeonik-Medium',
+    fontFamily: 'OpenSans-Medium',
   },
   tabBarStyle: {
-    paddingTop: 14,
-    paddingBottom: 20,
-    height: Platform.select({ ios: 75, android: 60 }),
-    // paddingHorizontal: 5,
-    backgroundColor: theme.colors.inputBg,
-    borderTopEndRadius: 20,
-    borderTopStartRadius: 20,
-    overflow: 'hidden',
-    borderWidth: 0,
-    borderTopWidth: 0,
-    marginTop: -20,
+    position: 'absolute',
+    backgroundColor: theme.colors.background,
+    borderRadius: 24,
+    height: font.h(65),
+    justifyContent: 'center',
+    marginHorizontal: SCREEN_HORIZONTAL_SPACING,
+    alignItems: 'center',
+
+    // iOS shadow
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+
+    // Android shadow
+    elevation: 5,
   },
   tabHeaderTitle: {
     fontSize: 30,

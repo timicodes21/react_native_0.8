@@ -9,3 +9,7 @@ export * from './EyeSlashIcon';
 export * from './DiscoverIcon';
 export * from './HeartIcon';
 export * from './PrayerIcon';
+export * from './HomeIcon';
+export * from './LibraryIcon';
+export * from './DownloadIcon';
+export * from './ProfileIcon';

@@ -11,3 +11,4 @@ export * from './AppTouchableOpacity';
 export * from './Surface';
 export * from './Checkbox';
 export * from './AppBottomsheet';
+export * from './BottomTabIcon';
