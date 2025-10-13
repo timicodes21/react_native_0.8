@@ -1,4 +1,8 @@
-import { font } from '@/app/constants/values';
+import {
+  font,
+  SCREEN_HORIZONTAL_SPACING,
+  SCREEN_WIDTH,
+} from '@/app/constants/values';
 import { stylesWithTheme } from '@/app/providers/theme';
 
 export const chooseInterestsStyles = stylesWithTheme(theme => ({
@@ -19,5 +23,15 @@ export const chooseInterestsStyles = stylesWithTheme(theme => ({
   },
   interestsContainer: {
     paddingHorizontal: theme.spacing.lg,
+  },
+  bottomContainer: {
+    position: 'absolute',
+    paddingHorizontal: SCREEN_HORIZONTAL_SPACING,
+    width: SCREEN_WIDTH,
+    backgroundColor: theme.colors.background,
+    paddingTop: 10,
+  },
+  bottomTextContainer: {
+    marginTop: font.h(12),
   },
 }));

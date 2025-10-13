@@ -24,6 +24,7 @@ interface IAppButtonProps extends TouchableOpacityProps {
   width?: DimensionValue;
   children?: ReactNode;
   leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   mode?: IButtonMode;
   py?: keyof AppTheme['spacing'];
   px?: keyof AppTheme['spacing'];
@@ -34,6 +35,7 @@ interface IAppButtonProps extends TouchableOpacityProps {
   isLoading?: boolean;
   textColor?: IFontColor;
   leftIconContainerStyle?: StyleProp<ViewStyle>;
+  rightIconContainerStyle?: StyleProp<ViewStyle>;
 }
 
 export const AppButton: React.FC<IAppButtonProps> = ({
@@ -45,12 +47,14 @@ export const AppButton: React.FC<IAppButtonProps> = ({
   px = 'none',
   radius = 4,
   leftIcon,
+  rightIcon,
   textColor,
   fontWeight = 'semi-bold',
   mode = 'primary',
   fontSize = 'regular',
   width = 'auto',
   leftIconContainerStyle,
+  rightIconContainerStyle,
   ...rest
 }) => {
   const { theme } = useAppTheme();
@@ -59,8 +63,12 @@ export const AppButton: React.FC<IAppButtonProps> = ({
   const containerMap: Record<IButtonMode, ViewStyle> = useMemo(() => {
     return {
       primary: {
-        backgroundColor: theme.colors.primary,
-        borderColor: theme.colors.primary,
+        backgroundColor: disabled
+          ? theme.colors.primaryBtnDisabled
+          : theme.colors.primary,
+        borderColor: disabled
+          ? theme.colors.primaryBtnDisabled
+          : theme.colors.primary,
       },
       transparent: {
         backgroundColor: theme.colors.primary,
@@ -71,7 +79,7 @@ export const AppButton: React.FC<IAppButtonProps> = ({
         borderColor: theme.colors.primary,
       },
     };
-  }, []);
+  }, [disabled]);
 
   const textMap: Record<IButtonMode, IFontColor> = useMemo(() => {
     return {
@@ -116,6 +124,11 @@ export const AppButton: React.FC<IAppButtonProps> = ({
               size={fontSize}>
               {children}
             </Typography>
+            {rightIcon && (
+              <View style={[styles.rightIcon, rightIconContainerStyle]}>
+                {rightIcon}
+              </View>
+            )}
           </View>
         )}
       </TouchableOpacity>
@@ -135,6 +148,9 @@ const useStyles = stylesWithTheme(theme => ({
   },
   leftIcon: {
     marginRight: theme.spacing.xs,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.xs,
   },
 }));
 

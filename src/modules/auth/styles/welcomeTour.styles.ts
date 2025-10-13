@@ -1,4 +1,9 @@
-import { font, FULL_WIDTH } from '@/app/constants/values';
+import {
+  font,
+  FULL_WIDTH,
+  SCREEN_HORIZONTAL_SPACING,
+  SCREEN_WIDTH,
+} from '@/app/constants/values';
 import { stylesWithTheme } from '@/app/providers/theme';
 
 export const welcomeTourStyles = stylesWithTheme(theme => ({
@@ -30,5 +35,18 @@ export const welcomeTourStyles = stylesWithTheme(theme => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  bottomSheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: font.w(10),
+  },
+  languageContainer: {
+    marginTop: 16,
+  },
+  bottomContainer: {
+    position: 'absolute',
+    width: SCREEN_WIDTH,
+    paddingHorizontal: SCREEN_HORIZONTAL_SPACING,
   },
 }));

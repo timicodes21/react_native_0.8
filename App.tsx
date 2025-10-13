@@ -8,6 +8,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/app/constants/queryClient';
 import { ToastProvider } from '@/app/providers/toast';
 import { LanguageProvider } from '@/app/providers/i18n';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 const App = () => {
   return (
@@ -16,9 +17,11 @@ const App = () => {
         <GestureHandlerRootView style={{ flex: 1 }}>
           <LanguageProvider>
             <ToastProvider>
-              <QueryClientProvider client={queryClient}>
-                <AppNavigationContainer />
-              </QueryClientProvider>
+              <BottomSheetModalProvider>
+                <QueryClientProvider client={queryClient}>
+                  <AppNavigationContainer />
+                </QueryClientProvider>
+              </BottomSheetModalProvider>
             </ToastProvider>
           </LanguageProvider>
         </GestureHandlerRootView>

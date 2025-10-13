@@ -23,7 +23,7 @@ export const WelcomeTourItem: React.FC<IProps> = ({ image }) => {
   const styles = useStyles();
   return (
     <View style={styles.container}>
-      <AppImage source={image} containerStyle={styles.image} />
+      <AppImage source={image} style={{}} containerStyle={styles.image} />
     </View>
   );
 };

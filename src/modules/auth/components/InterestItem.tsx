@@ -1,10 +1,10 @@
 import { View, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { font, FULL_WIDTH } from '@/app/constants/values';
 import { Checkbox, Surface, Typography } from '@/shared/components';
-import { PrayerIcon } from '@/shared/icons';
 
 interface IProps {
+  icon?: ReactNode;
   title: string;
   text: string;
   active?: boolean;
@@ -16,6 +16,7 @@ export const InterestItem: React.FC<IProps> = ({
   text,
   active,
   onChange,
+  icon,
 }) => {
   return (
     <Surface
@@ -26,14 +27,7 @@ export const InterestItem: React.FC<IProps> = ({
       height={90}
       width={FULL_WIDTH}>
       <View style={[styles.flex]}>
-        <Surface
-          size={48}
-          radius={14}
-          shadow
-          borderWidth={1}
-          borderColor="primary">
-          <PrayerIcon />
-        </Surface>
+        {icon}
         <View>
           <Typography
             size="normal"

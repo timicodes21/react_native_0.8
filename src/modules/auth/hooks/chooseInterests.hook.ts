@@ -28,6 +28,26 @@ export const interests: IInterest[] = [
     description: i18n.t('interestsSelection.interest4Description'),
     id: '4',
   },
+  {
+    title: i18n.t('interestsSelection.interest1Title'),
+    description: i18n.t('interestsSelection.interest1Description'),
+    id: '5',
+  },
+  {
+    title: i18n.t('interestsSelection.interest2Title'),
+    description: i18n.t('interestsSelection.interest2Description'),
+    id: '6',
+  },
+  {
+    title: i18n.t('interestsSelection.interest3Title'),
+    description: i18n.t('interestsSelection.interest3Description'),
+    id: '7',
+  },
+  {
+    title: i18n.t('interestsSelection.interest4Title'),
+    description: i18n.t('interestsSelection.interest4Description'),
+    id: '8',
+  },
 ];
 
 export const useChooseInterests = () => {
