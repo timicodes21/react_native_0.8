@@ -1,5 +1,11 @@
 import { PASSWORD_REGEX } from '@/app/constants/values';
+import {
+  AuthNavigationEnum,
+  AuthStackParamsList,
+} from '@/app/navigators/types/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useForm } from 'react-hook-form';
 import z, { email, string } from 'zod';
 
@@ -40,7 +46,12 @@ export const useSignup = () => {
     resolver: zodResolver(SignupSchema),
   });
 
-  const onSubmit = () => {};
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackParamsList>>();
+
+  const onSubmit = () => {
+    navigation.replace(AuthNavigationEnum.CHOOSE_INTERESTS);
+  };
 
   return {
     control,

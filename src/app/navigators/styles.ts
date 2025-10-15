@@ -20,15 +20,16 @@ const navStyles = stylesWithTheme(theme => ({
     justifyContent: 'center',
     marginHorizontal: SCREEN_HORIZONTAL_SPACING,
     alignItems: 'center',
+    borderTopWidth: 0,
 
     // iOS shadow
-    shadowColor: '#000',
+    shadowColor: 'rgba(0,0,0,0.5)',
     shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.08,
+    shadowOpacity: 0.2,
     shadowRadius: 10,
 
     // Android shadow
-    elevation: 5,
+    elevation: 10,
   },
   tabHeaderTitle: {
     fontSize: 30,

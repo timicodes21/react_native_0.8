@@ -23,7 +23,7 @@ export const bottomSheetHeight = (height: number) => {
 };
 export const PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
 
-export const TOUCH_OPACITY = 0.6;
+export const TOUCH_OPACITY = 0.8;
 
 const DEVICE_SCALE_WIDTH = Dimensions.get('window').width / 375;
 const DEVICE_SCALE_HEIGHT = Dimensions.get('window').height / 768;

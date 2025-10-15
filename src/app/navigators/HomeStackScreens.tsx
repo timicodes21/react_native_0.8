@@ -1,7 +1,8 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeNavigationEnum, HomeStackParamsList } from './types/home';
-import navStyles from './styles';
+import { HomeHeaderLeft, HomeHeaderRight } from '@/modules/home/components';
 import { Home } from '@/screens/home';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import navStyles from './styles';
+import { HomeNavigationEnum, HomeStackParamsList } from './types/home';
 
 const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
 
@@ -21,8 +22,11 @@ const HomeStackScreens = () => {
         name={HomeNavigationEnum.HOME}
         component={Home}
         options={{
-          headerShown: false,
+          headerShown: true,
           headerTitle: '',
+          headerLeft: () => <HomeHeaderLeft />,
+          headerRight: () => <HomeHeaderRight />,
+          headerTitleAlign: 'left',
         }}
       />
     </HomeStack.Navigator>

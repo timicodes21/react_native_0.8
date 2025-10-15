@@ -19,6 +19,9 @@ import {
 import { HomeNavigationEnum } from './types/home';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { font } from '../constants/values';
+import LibraryStackScreens from './LibraryStackScreens';
+import DownloadsStackScreens from './DownloadsStackScreens';
+import ProfileStackScreens from './ProfileStackScreens';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamsList>();
 
@@ -80,7 +83,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name={TabNavigatorEnum.LIBRARY}
-        component={HomeStackScreens}
+        component={LibraryStackScreens}
         options={() => {
           return {
             tabBarIcon: ({ focused }) => {
@@ -99,7 +102,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name={TabNavigatorEnum.DOWNLOADS}
-        component={HomeStackScreens}
+        component={DownloadsStackScreens}
         options={() => {
           return {
             tabBarIcon: ({ focused }) => {
@@ -118,7 +121,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name={TabNavigatorEnum.PROFILE}
-        component={HomeStackScreens}
+        component={ProfileStackScreens}
         options={() => {
           return {
             tabBarIcon: ({ focused }) => {

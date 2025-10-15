@@ -13,3 +13,4 @@ export * from './HomeIcon';
 export * from './LibraryIcon';
 export * from './DownloadIcon';
 export * from './ProfileIcon';
+export * from './ProfileAvatarIcon';

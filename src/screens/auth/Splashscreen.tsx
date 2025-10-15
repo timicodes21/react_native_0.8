@@ -30,7 +30,7 @@ export const Splashscreen: AuthScreenNavigationProps<
   const textTranslateY = useSharedValue(TEXT_INITIAL_TRANSLATE_Y);
 
   const handleNavigate = () => {
-    navigation.replace(AuthNavigationEnum.CHOOSE_INTERESTS);
+    navigation.replace(AuthNavigationEnum.WELCOME_TOUR);
   };
 
   useEffect(() => {
