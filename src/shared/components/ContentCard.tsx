@@ -8,6 +8,7 @@ import { BookmarkIcon } from 'lucide-react-native';
 import { font } from '@/app/constants/values';
 import { useAppTheme } from '@/app/providers/theme';
 import { Typography } from './Typography';
+import { IFontSize } from '@/app/configs/typography.config';
 
 export type ContentType = 'audio' | 'video' | 'book';
 
@@ -24,6 +25,7 @@ export interface MediaCardProps {
   borderRadius?: number;
   containerStyle?: StyleProp<ViewStyle>;
   contentType?: ContentType;
+  titleFontSize?: IFontSize;
 }
 
 export const ContentCard: React.FC<MediaCardProps> = ({
@@ -39,6 +41,7 @@ export const ContentCard: React.FC<MediaCardProps> = ({
   borderRadius = 16,
   containerStyle,
   contentType = 'video',
+  titleFontSize = 'regular',
 }) => {
   const { theme } = useAppTheme();
   return (
@@ -84,7 +87,7 @@ export const ContentCard: React.FC<MediaCardProps> = ({
               {title && (
                 <Typography
                   weight="bold"
-                  size={contentType === 'book' ? 'regular' : 'medium'}
+                  size={titleFontSize}
                   style={{ color: theme.colors.primaryButtonText }}>
                   {title}
                 </Typography>

@@ -14,6 +14,7 @@ export const HomeForYouSection = () => {
       <ContentCard
         imageSource={ThumbNailOne}
         width={FULL_WIDTH}
+        titleFontSize="medium"
         title="Message of the week"
         subtitle="4th week of Sept"
       />
@@ -23,6 +24,7 @@ export const HomeForYouSection = () => {
           imageSource={ThumbNailOne}
           width={FULL_WIDTH / 2 - 8}
           title="Experience Light"
+          titleFontSize="medium"
           subtitle="45 mins"
           leftIcon={
             <HeadphonesIcon
@@ -35,6 +37,7 @@ export const HomeForYouSection = () => {
         <ContentCard
           imageSource={ThumbNailOne}
           width={FULL_WIDTH / 2 - 8}
+          titleFontSize="medium"
           title="AFL Mentorship"
           subtitle="1h 15m"
           leftIcon={

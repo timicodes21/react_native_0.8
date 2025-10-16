@@ -133,7 +133,7 @@ export const DarkTheme: AppTheme = {
     backdrop: 'rgba(0,0,0,0.6)',
     loader: '#E0E0E0',
     darkGray: '#999999',
-    grayBg: '#F5F5F5',
+    grayBg: '#212731',
   },
   typography: baseTypography,
   spacing: baseSpacing,
